@@ -42,6 +42,7 @@ class _TodoAddState extends State<TodoAdd> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
+                  Navigator.pop(context, _Text);
                 },
                 child: const Text("リスト追加",
                 style: TextStyle(
