@@ -1,6 +1,6 @@
 # practice2_flutter
-
-A new Flutter project.
+flutterの学習
+～メモアプリの作成～
 
 ## Getting Started
 
