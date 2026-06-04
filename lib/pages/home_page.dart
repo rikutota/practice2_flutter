@@ -9,7 +9,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 class _MyHomePageState extends State<MyHomePage> {
-
+  List<String> _todoList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -20,32 +20,29 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ListView(
-          children: const [
-            Card(
+        child: ListView.builder(
+          itemCount: _todoList.length,
+          itemBuilder: (context, index) {
+            return Card(
               child: ListTile(
-                title: Text("リスト1"),
+                title: Text(_todoList[index]),
               ),
-            ),
-            Card(
-              child: ListTile(
-                title: Text("リスト2"),
-              ),
-            ),
-            Card(
-              child: ListTile(
-                title: Text("リスト3"),
-              ),
-            ),
-          ],
-          ),
+            );
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
+        onPressed: () async {
+          final newListText = await Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const TodoAdd()),
           );
+          if (newListText != null) {
+            // 新しいリストの内容を処理する
+            setState(() {
+              _todoList.add(newListText);
+            });
+          }
         },
         child: const Icon(Icons.add),
       ),
