@@ -16,10 +16,29 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text("リスト一覧"),
       ),
-      body: Center(
-        child: Text("リスト一覧画面")
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView(
+          children: const [
+            Card(
+              child: ListTile(
+                title: Text("リスト1"),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title: Text("リスト2"),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title: Text("リスト3"),
+              ),
+            ),
+          ],
+          ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
