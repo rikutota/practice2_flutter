@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'todo_add.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -18,19 +19,16 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              'counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+        child: Text("リスト一覧画面")
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {}
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const TodoAdd()),
+          );
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
