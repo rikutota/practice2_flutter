@@ -1,17 +1,15 @@
 # practice2_flutter
 flutterの学習
-～メモアプリの作成～
+～ToDoアプリの作成～
 
-## Getting Started
+## 実装した機能
+- ToDoリストの表示
+- ToDoの追加
 
-This project is a starting point for a Flutter application.
+## 実装予定の機能
+- ログインの実装
+- データベースとの連携
+- テーマの変更（ダークモード）
+- ボトムナビゲーションバーの実装（ホーム，テーマ変更画面，プロフィール画面）
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 力を入れたこと
