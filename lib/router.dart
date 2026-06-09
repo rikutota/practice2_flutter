@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'pages/home_page.dart';
-import 'pages/todo_add.dart';
-import 'pages/login_page.dart'; // インポートを追加
-import 'providers/auth_provider.dart'; // 前回のauthStateProvider
+import 'features/todo/pages/home_page.dart';
+import 'features/todo/pages/todo_add.dart';
+import 'features/auth/pages/login_page.dart'; // インポートを追加
+import 'features/auth/providers/auth_provider.dart'; // 前回のauthStateProvider
 
 // Streamの変化をListenable（ChangeNotifier）に変換するための補助クラス
 class GoRouterRefreshStream extends ChangeNotifier {
