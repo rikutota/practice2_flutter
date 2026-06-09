@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/todo_provider.dart';
 import 'todo_add.dart';
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-class _MyHomePageState extends State<MyHomePage> {
-  List<String> _todoList = [];
+  Widget build(BuildContext context, WidgetRef ref) {
+    final todoList = ref.watch(todoListProvider);
 
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -21,11 +19,11 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView.builder(
-          itemCount: _todoList.length,
+          itemCount: todoList.length,
           itemBuilder: (context, index) {
             return Card(
               child: ListTile(
-                title: Text(_todoList[index]),
+                title: Text(todoList[index]),
               ),
             );
           },
@@ -39,9 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
           );
           if (newListText != null) {
             // 新しいリストの内容を処理する
-            setState(() {
-              _todoList.add(newListText);
-            });
+            ref.read(todoListProvider.notifier).addTodo(newListText);
           }
         },
         child: const Icon(Icons.add),
