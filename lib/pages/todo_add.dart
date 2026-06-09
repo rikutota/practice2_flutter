@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:go_router/go_router.dart";
 
 class TodoAdd extends StatefulWidget {
   const TodoAdd({super.key});
@@ -42,7 +43,7 @@ class _TodoAddState extends State<TodoAdd> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context, _Text);
+                  context.pop(_Text);
                 },
                 child: const Text("リスト追加",
                 style: TextStyle(
@@ -56,7 +57,7 @@ class _TodoAddState extends State<TodoAdd> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  context.pop();
                 },
                 child: const Text("キャンセル"),
               ),

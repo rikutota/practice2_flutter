@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../providers/todo_provider.dart';
 import 'todo_add.dart';
 
@@ -31,10 +32,7 @@ class MyHomePage extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final newListText = await Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const TodoAdd()),
-          );
+          final newListText = await context.push<String>('/add');
           if (newListText != null) {
             // 新しいリストの内容を処理する
             ref.read(todoListProvider.notifier).addTodo(newListText);
