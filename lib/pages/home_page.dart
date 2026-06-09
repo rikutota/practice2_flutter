@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../providers/todo_provider.dart';
-import 'todo_add.dart';
 
 class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key, required this.title});
@@ -16,6 +16,19 @@ class MyHomePage extends ConsumerWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text("リスト一覧"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () async {
+              // ログアウト処理
+              await FirebaseAuth.instance.signOut();
+
+              if (context.mounted) {
+                context.go('/login'); // ログアウト後にログイン画面へ遷移
+              }
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
